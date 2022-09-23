@@ -1,0 +1,185 @@
+<!--
+	integrantes:
+		Luis Eduardo Lopez
+		Edison Vicente Insuasty
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Empleados</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<br>
+		<div class="row h-100 justify-content-center align-items-center ">
+			<div class="card col-10 border-black" style="background-color: #F0F2EE;" >
+				<h2 id="scrollspyHeading1" align="center"><b>Sistema de Empleados</b></h2>
+				<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example  p-3 rounded-2 text-black border-black" tabindex="0">
+					<h4 id="scrollspyHeading1"><b><i>- Datos Personales</i></b></h4>
+					<p>
+						<table align="center">
+							<tr align="center">
+								<td align="left">
+									Nombre:
+								</td>
+								<td align="right">
+									<input type="text" name="nombre" placeholder="Ingrese nombre" class="form-control" id="nombre" required>
+								</td>
+								<td rowspan="5">
+									
+									
+									<input type="file" class="form-control" id="file" accept="image/*" onchange="mostrar()"/>
+									<br>
+									<img id="img"/ width="100" height="140">
+
+
+								</td>
+							</tr>
+							<tr>
+								<td >
+									Apellido:
+								</td>
+								<td align="right">
+									<input type="text" name="apellido" placeholder="Ingrese apellido" class="form-control" id="apellido" required>
+								</td>
+							</tr>
+							<tr>
+								<td >
+									Sexo:
+								</td>
+								<td align="right">
+									<select class="form-select" aria-label="Default select example" id="sex">
+									  <option active>Seleccione Sexo</option>
+									  <option value="1">Masculino</option>
+									  <option value="2">Femenino</option>
+									</select>
+
+								</td>
+							</tr>
+							<tr>
+								<td >
+									Fecha de Nacimiento:
+									&nbsp;&nbsp;
+								</td>
+								<td align="right">
+									<input type="date" id="fechaNacimiento" name="trip-start" class="form-control">
+								</td>
+							</tr>
+							<tr>
+								<td >
+									Fecha de Ingreso:
+								</td>
+								<td align="right">
+									<input type="date" id="fechaIngreso" name="trip-start" class="form-control">
+								</td>
+							</tr>
+						</table>
+						
+					    
+					</p>
+					<h4 id="scrollspyHeading2"><b><i>- Salario</i></b></h4>
+					<p>
+						<table align="center">
+							<tr>
+								<td>
+									Salario:    $&nbsp;
+								</td>
+								<td>
+									<input type="number" name="salario" placeholder="Ingrese salario" class="form-control" id="sal" disabled required>
+								</td>
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="modificar_salario()" >Modificar</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									Dias Vacaciones:&nbsp;
+								</td>
+								<td>
+									<input type="number" name="vacaciones" placeholder="Ingrese dias Vacaciones" class="form-control" id="vac" disabled required>
+								</td>
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="modificar_vacaciones()" >Modificar</button>
+								</td>
+							</tr>
+						</table>
+						
+						
+					</p>
+					<h4 id="scrollspyHeading3"><b><i>- Cálculos</i></b></h4>
+					<p>
+						<table align="center">
+							<tr align="center">
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="calcular_edad()" >Calcular Edad</button>
+								</td>
+								<td>
+									<input type="text" name="calcularedad" class="form-control" id="calcedad" disabled required>
+								</td>
+							</tr>
+							<tr align="center">
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="calcular_antiguedad()" >Calcular Antiguedad</button>
+								</td>
+								<td>
+									<input type="text" name="calcularantiguedad" class="form-control" id="calcantiguedad" disabled required>
+									
+								</td>
+							</tr>
+							<tr align="center">
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="calcular_prestaciones()" >Calcular Prestaciones</button>
+								</td>
+								<td>
+									<input type="text" name="calcularprestaciones" class="form-control" id="calcprestaciones" disabled required>
+								</td>
+							</tr>
+						</table>
+					</p>
+					<h4 id="scrollspyHeading4"><b><i>- Puntos de Extensión</i></b></h4>
+					<p>
+						<table align="center">
+							<tr align="center">
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="calcular_prima()" >Calcular Prima</button>
+								</td>
+								<td>
+									<button class="btn btn-success border-white" type="button" onclick="calcular_vacaciones()" >Calcular Vacaciones</button>
+								</td>
+							</tr>
+							<tr align="center">
+								<td>
+									<img id="img1"/ width="80" height="80">
+									<p class="card-text" id=pri>
+										___
+									</p>
+
+									<input type="text" name="calcularprima" class="form-control" id="calcprima" disabled required>
+								</td>
+								<td>
+									<img id="img2"/ width="80" height="80">
+									<p class="card-text" id=vaca>
+										___
+									</p>
+
+									<input type="text" name="calcularvacaciones" disabled class="form-control" id="calcvacaciones" required>
+								</td>
+							</tr>
+						</table>
+					</p>
+				</div>
+			</div>
+		</div>
+		<br>
+
+
+		<script type="text/javascript" src="js/functions.js"></script>
+
+	</body>
+</html>
